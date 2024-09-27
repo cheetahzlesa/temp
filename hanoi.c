@@ -1,21 +1,18 @@
 #include <stdio.h>
 
-void hanoi(int n, int a, int b)
+void hanoi(int n, int a, int b, int c)
 {
-  if (n == 1) 
-    printf("move stone 1 from %d to %d\n", a, b);
-  else
+  if (n > 0)
   {
-    hanoi(n - 1, a, 6 - a);
+    hanoi(n - 1, a, c, b);
     printf("move stone %d from %d to %d\n", n, a, b);
-    hanoi(n, 6 - a - b, b);
+    hanoi(n- 1  , c, b, a);
   }
 }
 
 int main()
 {
   int n = 4;
-
-  hanoi(n, 1, 2);
+  hanoi(n, 1, 2, 3);
   return 0;
 }
